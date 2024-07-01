@@ -10,5 +10,5 @@
 
 ## Projects
 
-[Dog APIs](https://github.com/samirm00/express-template)
-[Goal APIs](https://github.com/samirm00/express-template)
+- [Dog APIs](https://github.com/samirm00/express-template)
+- [Goal APIs](https://github.com/samirm00/express-template)
