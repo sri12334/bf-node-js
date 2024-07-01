@@ -12,4 +12,3 @@
 
 - [Flight APIs](https://github.com/samirm00/express-template)
 - [Shop APIs](https://github.com/samirm00/express-template)
-- [Shop APIs](https://github.com/samirm00/express-template)
