@@ -1,45 +1,45 @@
 // Fill in the blanks to complete the exercises.
-import fs from '____';
-import path, { dirname } from '____';
-import { fileURLToPath } from '____';
+import fs from 'fs';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 // Construct the path
-const __filename = fileURLToPath(____);
-const PATH = dirname(____);
+const __filename = fileURLToPath(import.meta.url);
+const PATH = dirname(__filename);
 
 // Write to the file
-const contentToSave = '____';
-const filePath = path.join(PATH, '____');
-fs.writeFile(filePath, contentToSave, '____', (err) => {
+const contentToSave = '+32 465598034';
+const filePath = path.join(PATH, 'contact.txt');
+fs.writeFile(filePath, contentToSave, 'utf8', (err) => {
     if (err) {
-        console.error(____);
+        console.error(err);
     }
-    console.log('____');
+    console.log('File saved');
 });
 
 // Read from the file
-fs.readFile(filePath, '____', (err, data) => {
+fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
-        console.error(____);
+        console.error(err);
     }
-    console.log('____', data);
+    console.log('Read file', data);
 });
 
 // Append content to the file
-const contentToAppend = '____';
-fs.appendFile(filePath, contentToAppend, '____', (err) => {
+const contentToAppend = 'This is the appended content';
+fs.appendFile(filePath, contentToAppend, 'utf8', (err) => {
     if (err) {
-        console.error(____);
+        console.error(err);
     } else {
-        console.log('____');
+        console.log('appended to a file successfully!');
     }
 });
 
 // Delete a file
 fs.unlink(filePath, (err) => {
     if (err) {
-        console.error('____', err);
+        console.error('Error deleting file:', err);
     } else {
-        console.log('____');
+        console.log('File deleted successfully');
     }
 });

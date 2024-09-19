@@ -1,17 +1,17 @@
 // Syntax error
 const firstName = 'John';
-console.log(____); // lastName is not defined
+console.log(firstName); // lastName is not defined
 
 // Runtime error
-import http from '____';
+import http from 'http';
 
-const PORT1 = ____;
+const PORT1 = 3000;
 
 const server1 = http.createServer((req, res) => {
     const url = req.url;
     if (url === '/') {
-        res.setHeader('Content-Type', '____');
-        res.____ = 200;
+        res.setHeader('Content-Type', 'text/html');
+        res.statusCode = 200;
         res.write(`
     <html>
         <head></head>
@@ -20,12 +20,11 @@ const server1 = http.createServer((req, res) => {
         </body>
     </html>
     `);
-
-        res.____(); // Cannot set headers after they are sent to the client.
-    }
-    res.setHeader('Content-Type', '____');
-    res.____ = 200;
-    res.write(`
+        res.end(); // Cannot set headers after they are sent to the client.
+    } else {
+        res.setHeader('Content-Type', 'text/html');
+        res.statusCode = 200;
+        res.write(`
     <html>
         <head></head>
         <body>
@@ -33,34 +32,23 @@ const server1 = http.createServer((req, res) => {
         </body>
     </html>
     `);
-    res.____();
+        res.end();
+    }
 });
 
 server1.listen(PORT1, () => {
     console.log(`Server is up and running at port: ${PORT1}`);
 });
 
+
 // Logical error
-const PORT2 = ____;
+const PORT2 = 3001;
 const server2 = http.createServer((req, res) => {
     const url = req.url;
     if (url === '/about') {
-        res.setHeader('Content-Type', '____');
-        res.____ = 200;
+        res.setHeader('Content-Type', 'text/html');
+        res.statusCode = 200;
         res.write(`
-    <html>
-        <head></head>
-        <body>
-            <h1>Welcome to main page</h1>
-        </body>
-    </html>
-    `);
-
-        return res.____();
-    }
-    res.setHeader('Content-Type', '____');
-    res.____ = 200;
-    res.write(`
     <html>
         <head></head>
         <body>
@@ -68,7 +56,20 @@ const server2 = http.createServer((req, res) => {
         </body>
     </html>
     `);
-    return res.____();
+        return res.end();
+    }
+
+    res.setHeader('Content-Type', 'text/html');
+    res.statusCode = 200;
+    res.write(`
+    <html>
+        <head></head>
+        <body>
+            <h1>Welcome to main page</h1>
+        </body>
+    </html>
+    `);
+    return res.end();
 });
 
 server2.listen(PORT2, () => {

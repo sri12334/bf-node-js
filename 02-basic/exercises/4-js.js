@@ -1,14 +1,14 @@
-import http from '____';
+import http from 'http';
 
-import requestHandler from '____';
+import requestHandler from './routes';
 
 // Port
-const PORT = ____;
+const PORT = 3000;
 
 // Create a server
-const server = http.____(requestHandler);
+const server = http.createServer(requestHandler);
 
 // Start the server listening on the specified port
-server.____(PORT, () => {
-    console.log(`____`);
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
